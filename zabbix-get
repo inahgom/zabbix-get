@@ -1,19 +1,21 @@
+#Download the appropriate Zabbix version and repository for your operating system. I am using Zabbix 6 LTS on Ubuntu 20.04.
+
 wget https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.0-1+ubuntu20.04_all.deb
 dpkg -i zabbix-release_6.0-1+ubuntu20.04_all.deb
 apt update
-
+--------------------------------------------------------------------------------------------------------------------------
 #Now to install the zabbix_get program.
 sudo apt install zabbix-get
-
+--------------------------------------------------------------------------------------------------------------------------
 #For help use
 zabbix_get -h
-
+--------------------------------------------------------------------------------------------------------------------------
 #Try
 zabbix_get -s <host-name-or-IP> -p 10050 -k agent.ping
 zabbix_get -s <host-name-or-IP> -p 10050 -k agent.version
 zabbix_get -s <host-name-or-IP> -p 10050 -k agent.hostname
 zabbix_get -s <host-name-or-IP> -p 10050 -k system.cpu.load[all,avg1]
-
+-------------------------------------------------------------------------------------------------------------------------
 #Usage
 zabbix_get -s host-name-or-IP [-p port-number] [-I IP-address] -k item-key
 zabbix_get -s host-name-or-IP [-p port-number] [-I IP-address]
@@ -29,7 +31,7 @@ zabbix_get -s host-name-or-IP [-p port-number] [-I IP-address]
                 [--tls-cipher cipher-string] -k item-key
 zabbix_get -h
 zabbix_get -V
-
+----------------------------------------------------------------------------------------------------------------------------
 #Example Python Script
 
 import subprocess
